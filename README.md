@@ -10,4 +10,7 @@ Rebuild the whole website.
 
 2021/05/11 21:52
 Update the Javascripts
+
+2021/05/29
+Completely rewrite all JavaScripts.
 ```
