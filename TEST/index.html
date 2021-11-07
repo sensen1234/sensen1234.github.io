@@ -134,12 +134,7 @@
                 let width = this.ctx.measureText(content).width
 
                 
-                // 循环设置水印
-                for (let x = -1 * this.canvas.width; x < (this.canvas.width + this.canvas.height) * 2; x += 60) {
-                    for (let y = (-1 * this.canvas.height) - (x * width * 0.5); y < (this.canvas.width + this.canvas.height) * 2; y += width + 24) {
-                        this.ctx.fillText(content, y, x)
-                    }
-                }
+                
 
                 
                 // 测试输出文字宽度
