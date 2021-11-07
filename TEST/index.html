@@ -133,9 +133,7 @@
                 // 测试输出文字宽度
                 let width = this.ctx.measureText(content).width
 
-                // 围绕图片中心设置旋转
-                this.ctx.rotate(-20 * Math.PI / 180)
-
+                
                 // 循环设置水印
                 for (let x = -1 * this.canvas.width; x < (this.canvas.width + this.canvas.height) * 2; x += 60) {
                     for (let y = (-1 * this.canvas.height) - (x * width * 0.5); y < (this.canvas.width + this.canvas.height) * 2; y += width + 24) {
@@ -143,28 +141,11 @@
                     }
                 }
 
-                // 还原旋转
-                this.ctx.rotate(20 * Math.PI / 180)
-
-                if (!small) return
-
-                // 再次随机添加细碎小文字
-                this.setStyle("12px Microsoft YaHei MingLiU Arial")
-                this.ctx.globalAlpha = 0.15
-                this.ctx.fillStyle = "#CCC"
-
+                
                 // 测试输出文字宽度
                 width = this.ctx.measureText(content).width
 
-                // 循环设置水印
-                for (let x = 0, i = 0; x < this.canvas.width; x += 36, i++) {
-                    for (let y = -1 * (i % 2 == 1 ? width / 2 : 0); y < this.canvas.height + width; y += width + 36) {
-                        this.ctx.fillText(content, y, x)
-                    }
-                }
-            }
-        }
-
+                
         // 加载远程图片
         let app = new Watermark(document.querySelector('#canvas'))
         app.loadImg('./default.jpg').then((app) => {
@@ -193,18 +174,7 @@
 
         let inputContent = document.getElementById('inputContent')
 
-        // 获取三天后的时间
-        let dateTime = new Date(Date.now() + 3 * 24 * 60 * 60 * 1000)
-        console.log(inputContent, dateTime)
-        let year = dateTime.getFullYear()
-        let month = dateTime.getMonth() + 1
-        let day = dateTime.getDate()
-
-
-        inputContent.value = `此证件照仅供 XXX 于 ${year} 年 ${month} 月 ${day} 日前 实名认证 使用。`
-
-        document.getElementById('inputContent').oninput = document.getElementById('small-watermark').onchange = generate
-    })()
+        
 </script>
 </body>
 
